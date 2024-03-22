@@ -1,0 +1,1221 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th10 24, 2023 lúc 08:40 PM
+-- Phiên bản máy phục vụ: 10.4.27-MariaDB
+-- Phiên bản PHP: 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Cơ sở dữ liệu: `ezd`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `answers`
+--
+
+CREATE TABLE `answers` (
+  `quiz_item_id` bigint(20) NOT NULL,
+  `answers` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `auth`
+--
+
+CREATE TABLE `auth` (
+  `id` bigint(20) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `balance` decimal(38,2) DEFAULT NULL,
+  `birth_day` varchar(255) DEFAULT NULL,
+  `country` varchar(255) DEFAULT NULL,
+  `created_date` datetime(6) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `gender` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `phone_number` varchar(255) DEFAULT NULL,
+  `role` tinyint(4) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `rank_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `auth`
+--
+
+INSERT INTO `auth` (`id`, `address`, `balance`, `birth_day`, `country`, `created_date`, `email`, `gender`, `name`, `password`, `phone_number`, `role`, `status`, `rank_id`) VALUES
+(1, NULL, '0.00', NULL, NULL, NULL, 'admin@gmail.com', NULL, 'admin', '$2a$10$3JGBTd7TZn1ACCxHdXinme5iasaC7ylyvOMUM8KXQzHUhRpqUVW.m', NULL, 2, NULL, NULL),
+(52, NULL, '0.00', '1998-11-20', NULL, '2023-11-24 15:50:58.000000', 'viettmvs@gmail.com', NULL, 'Trần Minh Việt', '$2a$10$nehPkrxNjMHoFvNio8p.7uxmESaQJuY/tWpMDIEoLcEHK7flcBh8a', NULL, 0, 0, NULL),
+(102, 'HCM', '0.00', '2000-01-01', NULL, '2023-11-24 18:28:57.000000', 'xuanmai@gmail.com', NULL, 'Xuân Mai', '$2a$10$3uBBtTbFh.4e8sILSx2Q8uT/BIWXHuVsjclAMdfgCu1VyFcFLbGUy', '0123456789', 0, 0, 1),
+(103, 'Hanoi', '0.00', '1995-03-15', NULL, '2023-11-24 18:31:08.000000', 'ngoctrinh@gmail.com', NULL, 'Ngọc Trinh', '$2a$10$dlfdHBYrW.Qv4L4pqLAkhOH5p2oQeLz..s8YGPQNxrmTdgRrD3aEy', '0123456789', 0, 0, NULL),
+(104, 'Da Nang', '0.00', '1988-07-20', NULL, '2023-11-24 18:31:29.000000', 'maiphuong@gmail.com', NULL, 'Mai Phương', '$2a$10$pgDQjTOdsSm.i0M8bkIgkOgOthmRzfd7vOd8zKGXBns5A2tDI6apK', '0123456789', 0, 0, NULL),
+(105, 'Hanoi', '0.00', '1990-05-15', NULL, '2023-11-24 18:33:46.000000', 'hongnhung@gmail.com', NULL, 'Hồng Nhung', '$2a$10$/hPSYCc4h0PAI2SAcztsruMNuBDYx8UxgT8tCkuZVuvhydw5KgFoa', '0123456789', 0, 0, NULL),
+(106, 'Ho Chi Minh City', '0.00', '1992-12-10', NULL, '2023-11-24 18:34:48.000000', 'quynhtrang@gmail.com', NULL, 'Quỳnh Trang', '$2a$10$4Q9E8sRKeSe923s1N4V3ueCfjSXY1lOC3QVDyPyNn7Gy/mv/Fkc1C', '0123456789', 0, 0, NULL),
+(107, 'Da Nang', '0.00', '1985-08-25', NULL, '2023-11-24 18:36:06.000000', 'thienhuong@gmail.com', NULL, 'Thiên Hương', '$2a$10$aZN0BeMiUhEaCu2aPHEenecYlE2RocqdonyLjkZndHsjQVjcyZGlG', '0123456789', 0, 0, NULL),
+(108, 'Nha Trang', '0.00', '1998-03-03', NULL, '2023-11-24 18:36:25.000000', 'hanhdung@gmail.com', NULL, 'Hạnh Dung', '$2a$10$ce0So2Id2Ic1764imd4ULucoPbQfrdQ6w7azDP/kvCOM6x14PvafW', '0123456789', 0, 0, NULL),
+(109, 'Hue', '0.00', '1994-06-18', NULL, '2023-11-24 18:36:45.000000', 'minhchau@gmail.com', NULL, 'Minh Châu', '$2a$10$d3NKtguAnd4ixHfX84WI6uRCz7vvcglsZmhylvK1UZalWJa6JebsK', '0123456789', 0, 0, NULL),
+(110, 'Can Tho', '0.00', '1987-09-30', NULL, '2023-11-24 18:37:04.000000', 'thanhhuong@gmail.com', NULL, 'Thanh Hương', '$2a$10$w.Wy7XzzNJv5F3ZuBPW0x.vjPrvqDnbwq07JIAhwHNOzYwf8TMKqC', '0123456789', 0, 0, NULL),
+(111, 'Vung Tau', '0.00', '1996-02-14', NULL, '2023-11-24 18:37:21.000000', 'honganh@gmail.com', NULL, 'Hồng Anh', '$2a$10$0fl4SAUno0L9.5IGvW/bsOx7B8U.YA6m0Je1BnyCpW5/tnqhOQKPa', '0123456789', 0, 0, NULL),
+(112, 'Phan Thiet', '0.00', '1989-11-22', NULL, '2023-11-24 18:37:39.000000', 'gialinh@gmail.com', NULL, 'Gia Linh', '$2a$10$0h8.oReGJC8dsMZw0SlVQeJEOrqZbybw3dw5IJ275BPwoSxzfvUBG', '0123456789', 0, 0, NULL),
+(113, 'Quy Nhon', '0.00', '1991-07-08', NULL, '2023-11-24 18:38:40.000000', 'ngocanh@gmail.com', NULL, 'Ngọc Anh', '$2a$10$GDdsBGyd78bieE9zcy.B5eusq7KE30Gvqrx3nSA0urDSLhd/GYa9.', '0123456789', 0, 0, NULL),
+(114, 'Hai Phong', '0.00', '1986-04-05', NULL, '2023-11-24 18:38:58.000000', 'hamy@gmail.com', NULL, 'Hà My', '$2a$10$dSlpbTX6XY6k2tjCXw786e3Wf3z0B.v4lp.KJnlcbvosM1QBesD.e', '0123456789', 0, 0, NULL),
+(115, 'Cao Bang', '0.00', '1993-09-19', NULL, '2023-11-24 18:39:14.000000', 'anhthu@gmail.com', NULL, 'Anh Thư', '$2a$10$SliWEFDDja6pv8M.JouVn.507Zv1QyfQkqOLQtBaMBCLGvOR1CmaG', '0123456789', 0, 0, NULL),
+(152, 'Buon Ma Thuot', '0.00', '1999-12-25', NULL, '2023-11-24 18:40:23.000000', 'lanhuong@gmail.com', NULL, 'Lan Hương', '$2a$10$o0C7fGHJm9kPVaJb3CekrOPvApcxD18m/50CjgCFjBIaMcN6IK2cW', '0123456789', 0, 0, NULL),
+(153, 'Bac Lieu', '0.00', '1984-01-11', NULL, '2023-11-24 18:40:41.000000', 'linhnga@gmail.com', NULL, 'Linh Nga', '$2a$10$lke4scx4xnTY0kkoHD6/jurwsy6MJ67cowAoZtcgoBPidVpuUbFfO', '0123456789', 0, 0, NULL),
+(154, 'Long Xuyen', '0.00', '1997-06-29', NULL, '2023-11-24 18:42:59.000000', 'tuyetnga@gmail.com', NULL, 'Tuyết Nga', '$2a$10$FqVS3DeKnDqAvQ9zgm93PuY/MyZB0fASl9LXSV0oNjO0lWluNTznC', '0123456789', 0, 0, NULL),
+(155, 'Tuy Hoa', '0.00', '1992-03-07', NULL, '2023-11-24 18:43:15.000000', 'tramanh@gmail.com', NULL, 'Trâm Anh', '$2a$10$B/.Mw/cttNB499OgiSgIcOJpDxe0TxH9XuXSWz0TY5KiQj7sImh5i', '0123456789', 0, 0, NULL),
+(156, 'My Tho', '0.00', '1983-08-13', NULL, '2023-11-24 18:43:31.000000', 'thuha@gmail.com', NULL, 'Thu Hà', '$2a$10$aXeOUQHelQB0PpPMpxlcP.rspTlzAjBzgdmCiOf08Jh2QLRfB68ne', '0123456789', 0, 0, NULL),
+(157, 'Hanoi', '0.00', '1990-05-15', NULL, '2023-11-24 18:45:34.000000', 'quanghuy@gmail.com', NULL, 'Quang Huy', '$2a$10$x5JtrE8KFjx2rx9rG/InD.IzemWz6mtChAog9lR9zxDWnq.7KbjFm', '0123456789', 0, 0, NULL),
+(158, 'Ho Chi Minh City', '0.00', '1992-12-10', NULL, '2023-11-24 18:45:49.000000', 'minhtu@gmail.com', NULL, 'Minh Tú', '$2a$10$h/lQGN5g/jKfHpJ1lFL7W.DPLD4fViLLtHZ8FraBcrfTDfTZz5yl2', '0123456789', 0, 0, NULL),
+(159, 'Da Nang', '0.00', '1985-08-25', NULL, '2023-11-24 18:46:06.000000', 'ducanh@gmail.com', NULL, 'Đức Anh', '$2a$10$8trhAENC/A1sZ5aEKLrSTOFDg/ASWNdMsBX6KZ24PpNmhnqp3q2gO', '0123456789', 0, 0, NULL),
+(160, 'Nha Trang', '0.00', '1998-03-03', NULL, '2023-11-24 18:46:29.000000', 'vanduc@gmail.com', NULL, 'Văn Đức', '$2a$10$v9Ms38/ccrqnsr16mFiebOdft4odjim42nZwJKENyaiMAF7AN01jy', '0123456789', 0, 0, NULL),
+(161, 'Hue', '0.00', '1994-06-18', NULL, '2023-11-24 18:47:11.000000', 'tuananh@gmail.com', NULL, 'Tuấn Anh', '$2a$10$LB7b4lkrMRH9YSf7Rcam7Obq.o31GejQrQm01Oa00txV41nLdEDrC', '0123456789', 0, 0, NULL),
+(162, 'Can Tho', '0.00', '1987-09-30', NULL, '2023-11-24 18:47:27.000000', 'hoangnam@gmail.com', NULL, 'Hoàng Nam', '$2a$10$6IM5IF4LuAbDAnf741ITV.TlsJmU2BKoEzUGHK/X1R7GpyYxMGYzS', '0123456789', 0, 0, NULL),
+(163, 'Vung Tau', '0.00', '1996-02-14', NULL, '2023-11-24 18:47:44.000000', 'duykhanh@gmail.com', NULL, 'Duy Khánh', '$2a$10$75aLAFdY7i26Z9iaWL/GKu08hsC5uYMM3ykjgbLOVtNJt4xOWtNxW', '0123456789', 0, 0, NULL),
+(164, 'Phan Thiet', '0.00', '1989-11-22', NULL, '2023-11-24 18:48:01.000000', 'anhkhoa@gmail.com', NULL, 'Anh Khoa', '$2a$10$mShdsomoM1/c9Jv0QsTlHuz9deM7DivAsVq0Wuo739XxuaT/8X0qC', '0123456789', 0, 0, NULL),
+(165, 'Quy Nhon', '0.00', '1991-07-08', NULL, '2023-11-24 18:48:47.000000', 'haian@gmail.com', NULL, 'Hải An', '$2a$10$lYH.xlvJotBOpjCVpbALhefNPaZtDyanLQ/bmZf.yDDWSXoSVDUmC', '0123456789', 0, 0, NULL),
+(166, 'Hai Phong', '0.00', '1986-04-05', NULL, '2023-11-24 18:49:07.000000', 'hoaiphuong@gmail.com', NULL, 'Hoài Phương', '$2a$10$UDpEOFRTHwtCZamfHitrH.8y6B7URCRUX75XfGF4xpMk1TFX.wPLe', '0123456789', 0, 0, NULL),
+(167, 'Cao Bang', '0.00', '1993-09-19', NULL, '2023-11-24 18:49:24.000000', 'vietanh@gmail.com', NULL, 'Việt Anh', '$2a$10$6/FxK8cKhkX5cQU.ZPyX0.vzgQA8XZN.n47ABj9BSndbHSHCqw98W', '0123456789', 0, 0, NULL),
+(168, 'Buon Ma Thuot', '0.00', '1999-12-25', NULL, '2023-11-24 18:49:40.000000', 'phuchau@gmail.com', NULL, 'Phúc Hậu', '$2a$10$DX5EUyUxj/evvoDqc6OVSuwyai/C88V3IBMT2QFw22ypMC.EfhP8O', '0123456789', 0, 0, NULL),
+(169, 'Bac Lieu', '0.00', '1984-01-11', NULL, '2023-11-24 18:49:57.000000', 'quocnghia@gmail.com', NULL, 'Quốc Nghĩa', '$2a$10$m8j5XnAG4DUKjrectyuT9etsuXTJdZUf7UPLwx/eQY0nll6woaPW.', '0123456789', 0, 0, NULL),
+(170, 'Long Xuyen', '0.00', '1997-06-29', NULL, '2023-11-24 18:50:13.000000', 'huunghi@gmail.com', NULL, 'Hữu Nghị', '$2a$10$oGQEzWYRLUg7.An1AyRDGOGiotXYpWf7nC24WQ0nzc/wyXgwzHnhW', '0123456789', 0, 0, NULL),
+(171, 'Tuy Hoa', '0.00', '1992-03-07', NULL, '2023-11-24 18:50:28.000000', 'khachuy@gmail.com', NULL, 'Khắc Huy', '$2a$10$jL3dytWBhQBiv1uC/cG37u9zzwFypsgqMLMCvnsEIZMsBXMJp9tk2', '0123456789', 0, 0, NULL),
+(172, 'My Tho', '0.00', '1983-08-13', NULL, '2023-11-24 18:50:50.000000', 'duchoa@gmail.com', NULL, 'Đức Hòa', '$2a$10$S5N32uG3OrJ.gSuJNZL81OqLcqYaidBAUz0BXf26tSfgPxIN7BFpW', '0123456789', 0, 0, NULL),
+(202, NULL, '0.00', '1999-12-10', NULL, '2023-11-25 01:45:24.000000', 'xuanquynh@gmail.com', NULL, 'Xuân Quỳnh', '$2a$10$8V5ff1nU5BDwGc/BsqcUVOq/YOPyIr1kjNGN13IXd/b.7Px6p.hru', NULL, 0, 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `auth_avatars`
+--
+
+CREATE TABLE `auth_avatars` (
+  `auth_id` bigint(20) NOT NULL,
+  `avatars` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `auth_avatars`
+--
+
+INSERT INTO `auth_avatars` (`auth_id`, `avatars`) VALUES
+(52, 'https://res.cloudinary.com/dbdz9u1y6/image/upload/v1698467917/oogfmmehumkcbpxfaqrv.jpg'),
+(102, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700833174/m5qu6nonyc63vmtvfiy8.jpg'),
+(202, 'https://res.cloudinary.com/dbdz9u1y6/image/upload/v1698467917/oogfmmehumkcbpxfaqrv.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `auth_seq`
+--
+
+CREATE TABLE `auth_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `auth_seq`
+--
+
+INSERT INTO `auth_seq` (`next_val`) VALUES
+(301);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `banner`
+--
+
+CREATE TABLE `banner` (
+  `id` bigint(20) NOT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `banner`
+--
+
+INSERT INTO `banner` (`id`, `image`, `name`, `status`, `title`) VALUES
+(3, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700486453/yj09lgj3exdygzgjvryc.jpg', 'LMHT', 1, 'Chơi Game ở EZD để nhận được nhiều ưu đãi'),
+(4, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700486350/uzigvnrvut2fph2figc0.jpg', 'FO4', 2, 'hãy đến cửa hàng chúng tôi để trải nghiệm các phụ kiện gaming'),
+(14, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700486398/hbrc3lh1z9m7z4tffodj.jpg', 'EGT', 2, 'Đến với chúng tôi để trải nghiệm miễn phí');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `become_idol`
+--
+
+CREATE TABLE `become_idol` (
+  `id` bigint(20) NOT NULL,
+  `admin_check_time` datetime(6) DEFAULT NULL,
+  `become_time` datetime(6) DEFAULT NULL,
+  `birth_day` datetime(6) DEFAULT NULL,
+  `checked_by_admin` bit(1) NOT NULL,
+  `decription` varchar(255) DEFAULT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `img_after` varchar(255) DEFAULT NULL,
+  `img_avarta` varchar(255) DEFAULT NULL,
+  `img_before` varchar(255) DEFAULT NULL,
+  `img_rank` varchar(255) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `street` varchar(255) DEFAULT NULL,
+  `url_face_book` varchar(255) DEFAULT NULL,
+  `url_youtube` varchar(255) DEFAULT NULL,
+  `user_become_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `become_idol_seq`
+--
+
+CREATE TABLE `become_idol_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `become_idol_seq`
+--
+
+INSERT INTO `become_idol_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` bigint(20) NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `blog`
+--
+
+INSERT INTO `blog` (`id`, `content`, `image`, `name`, `title`) VALUES
+(7, 'Để chuẩn bị cho Mùa 10 DTCL và đẩy nhanh tốc độ leo rank của mọi người hơn, Riot Games đã hé lộ các thay đổi về cách tính điểm Rank và hệ thống trừ điểm tự động ở rank cao hơn các mùa trước đây.\r\nCụ thể hơn, từ Mùa 10 DTCL sắp ra mắt ở bản cập nhật 13.23,', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700071558/zq6vczhnei9zu9dpylr2.jpg', 'Game DTCL', 'Riot Games chuẩn bị nhiều thay đổi lớn trong tính điểm Rank và cấp xếp hạng cho Mùa 10'),
+(8, 'Người hâm mộ Bethesda đã theo dõi số lượng người chơi của Starfield, và con số này có vẻ như đang giảm đi một cách nhanh chóng.\r\nKhi Starfield được công bố, cộng đồng game thủ đã rất háo hức về một cuộc phiêu lưu mang tính khoa học viễn tưởng trong một th', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1699808400/rzxnrnk3l5cts88qdvae.webp', 'Game Starfield', 'Starfield có thể là tựa game kém thành công nhất trong vài năm qua của Bethesda'),
+(10, 'Trong Jujutsu Kaisen - Chú Thuật Hồi Chiến, chú cụ là những vũ khí hỗ trợ cho chú thuật sư trong chiến đấu và thanh tẩy nguyền hồn. Chú cụ cũng được phân chia theo cấp bậc sức mạnh, với chú cụ đặc cấp là thuộc hàng mạnh nhất. Ở phần 1 thì chúng ta đã tìm ', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1699871568/wxhyrb5jbh2fi24lhk1u.jpg', 'Jujutsu Kaisen', ' Danh sách các chú cụ và sức mạnh của chúng (Phần 2)'),
+(11, 'Cuộc đình công của SAG - AFTRA sắp đi đến hồi kết khi Hiệp hội đã đạt được thỏa thuận bước đầu với các hãng phim. Nam diễn viên Ryan Reynolds ngay sau đó đã tiết lộ thông tin về 1 thành viên mới thú vị sẽ xuất hiện trong dự án Deadpool 3.\r\nDự án siêu anh ', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1699871640/gk7y0aew9fzcamy59box.jpg', 'Deadpool 3', 'Ryan Reynolds tiết lộ thông tin mới về phim'),
+(13, 'Tính đến thời điểm hiện tại, khá nhiều game thủ Diablo 4 dường như bắt đầu cảm nhận được một sự tương đồng với phiên bản tiền nhiệm là Diablo 3. Ra mắt năm 2012, Diablo 3 đạt được những thành công nhất định, nhưng sau đó lại bị gọi là một trò chơi thiếu s', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700204622/lpdg13ocwtal82xojmmd.jpg', 'Diablo 4', 'Diablo 4 hứa hẹn hoạt động mới lấy cảm hứng từ Diablo 3 để game thủ bớt nhàm chán'),
+(14, 'Spoiler Boruto 84 - Boruto Two Blue Vortex 4, tóm tắt nội dung chap 83: Xác định vị trí Thập Vĩ, Boruto nhắm đến việc tiêu diệt nó. Tuy nhiên, những kẻ địch mới xuất hiện. Tình trạng của Sasuke hiện tại cũng được hé lộ.\r\nSử dụng Rasengan Uzuhiko, Boruto d', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700204783/v76y3anucmd3pzapgtcw.jpg', 'Boruto 84', 'Spoiler Boruto 84: Kẻ địch mới xuất hiện - Sasuke cũng bị phong ấn vào cây!'),
+(15, 'Cộng đồng chưa kịp vui mừng với DLC mới của World of Warcraft thì Blizzard đã công bố mức giá khiến bất kì ai cũng phải mếu hết cả mặt vì nó quá chát\r\nBlizzard trong một vài năm trở lại đây đã nhận về không ít những chỉ trích từ cộng đồng người hâm mộ, kh', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700204951/wdnliwjuva8w9ovbaiti.jpg', ' Warcraft thì Blizzard', 'Blizzard lại nhận gạch đá khi mở bán gói VIP giá trên trời cho DLC của World of Warcraft'),
+(16, 'Mới đây thì một game thủ PUBG đã bất ngờ đăng tải hình ảnh về một \"bản thiết kế vĩ đại\" được chính anh chàng dành 4 năm trời để tạo nên. Theo đó đây chính là một hình ảnh về toàn bộ những bản đồ của PUBG và tạo nó hành một khu vực vô cùng rộng lớn. \r\nTheo', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700222676/sullh4irkcykfa4opcjl.webp', 'PUBG', 'Game thủ gộp toàn bộ bản đồ PUBG thành một bản đồ lớn với 1000 người chơi');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` bigint(20) NOT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `full_name` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `donate`
+--
+
+CREATE TABLE `donate` (
+  `id` bigint(20) NOT NULL,
+  `amount` decimal(38,2) DEFAULT NULL,
+  `transaction_date` datetime(6) DEFAULT NULL,
+  `user_from_id` bigint(20) DEFAULT NULL,
+  `user_to_id` bigint(20) DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `item_donate` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `donate_seq`
+--
+
+CREATE TABLE `donate_seq` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `donate_seq`
+--
+
+INSERT INTO `donate_seq` (`next_val`) VALUES
+(1);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `id` bigint(20) NOT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `game`
+--
+
+CREATE TABLE `game` (
+  `id` bigint(20) NOT NULL,
+  `image_name` varchar(255) DEFAULT NULL,
+  `name_game` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `game`
+--
+
+INSERT INTO `game` (`id`, `image_name`, `name_game`) VALUES
+(1, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700808474/bqo5ho4yzqwxexnzwkbx.jpg', 'Loạn Chiến Mobile'),
+(2, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700808674/yj2dih4suim9xqemr3p9.jpg', 'COD: Mobile'),
+(3, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700808752/evmtzciuk2zbwlylg5ag.png', 'Valorant'),
+(4, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700808836/jryjjwr20wb52lcfgglv.jpg', 'Audition PC'),
+(5, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700808920/tw1fawiofnbysovdimyi.jpg', 'AU Mobile'),
+(6, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809003/pdr57cxgickfdr6uhucm.jpg', 'Mobile Legends'),
+(7, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809058/rrpqcpq1k8nh4snjtysm.jpg', 'Play Together'),
+(8, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809143/rk2bwps8clqcdm8e64go.jpg', 'Liên Minh: Tốc Chiến'),
+(9, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809296/eutfhuyjn1vafmhiosst.jpg', 'Free Fire'),
+(10, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809386/rv7aftdiq0pfscwisj0i.jpg', 'Liên Quân Mobile'),
+(11, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809459/txo9n3aebajmorsdutaf.jpg', 'Đấu Trường Chân Lý'),
+(12, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809530/ldl8ay1hlec9jyrfsvsj.jpg', 'Pubg Mobile'),
+(13, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700809595/pjvhrgbmumflmdjdxd3y.png', 'Liên Minh Huyền Thoại');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `game_gender`
+--
+
+CREATE TABLE `game_gender` (
+  `game_id` bigint(20) NOT NULL,
+  `gender_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `game_gender`
+--
+
+INSERT INTO `game_gender` (`game_id`, `gender_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(2, 1),
+(2, 2),
+(2, 3),
+(3, 1),
+(3, 2),
+(3, 3),
+(4, 1),
+(4, 2),
+(4, 3),
+(5, 1),
+(5, 2),
+(5, 3),
+(6, 1),
+(6, 2),
+(6, 3),
+(7, 1),
+(7, 2),
+(7, 3),
+(8, 1),
+(8, 2),
+(8, 3),
+(9, 1),
+(9, 2),
+(9, 3),
+(10, 1),
+(10, 2),
+(10, 3),
+(11, 1),
+(11, 2),
+(11, 3),
+(12, 1),
+(12, 2),
+(12, 3),
+(13, 1),
+(13, 2),
+(13, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `game_level`
+--
+
+CREATE TABLE `game_level` (
+  `game_id` bigint(20) NOT NULL,
+  `level_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `game_level`
+--
+
+INSERT INTO `game_level` (`game_id`, `level_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 7),
+(1, 8),
+(1, 11),
+(2, 17),
+(2, 18),
+(2, 19),
+(2, 20),
+(2, 21),
+(3, 1),
+(3, 2),
+(3, 3),
+(3, 4),
+(3, 5),
+(3, 6),
+(3, 7),
+(3, 8),
+(3, 10),
+(4, 20),
+(4, 22),
+(4, 23),
+(5, 20),
+(5, 22),
+(5, 23),
+(6, 1),
+(6, 2),
+(6, 3),
+(6, 4),
+(6, 5),
+(6, 6),
+(6, 7),
+(6, 8),
+(6, 9),
+(6, 10),
+(6, 11),
+(7, 20),
+(7, 22),
+(7, 23),
+(8, 1),
+(8, 2),
+(8, 3),
+(8, 4),
+(8, 5),
+(8, 6),
+(8, 7),
+(8, 8),
+(8, 9),
+(8, 10),
+(9, 1),
+(9, 2),
+(9, 3),
+(9, 4),
+(9, 5),
+(9, 7),
+(9, 10),
+(9, 16),
+(10, 1),
+(10, 2),
+(10, 3),
+(10, 4),
+(10, 5),
+(10, 7),
+(10, 8),
+(10, 11),
+(10, 13),
+(11, 1),
+(11, 2),
+(11, 3),
+(11, 4),
+(11, 5),
+(11, 6),
+(11, 7),
+(11, 8),
+(11, 9),
+(11, 10),
+(12, 1),
+(12, 2),
+(12, 3),
+(12, 4),
+(12, 5),
+(12, 7),
+(12, 8),
+(12, 14),
+(12, 15),
+(13, 1),
+(13, 2),
+(13, 3),
+(13, 4),
+(13, 5),
+(13, 6),
+(13, 7),
+(13, 8),
+(13, 9),
+(13, 10);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `game_role`
+--
+
+CREATE TABLE `game_role` (
+  `game_id` bigint(20) NOT NULL,
+  `role_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `game_role`
+--
+
+INSERT INTO `game_role` (`game_id`, `role_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7),
+(1, 8),
+(1, 9),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15),
+(2, 25),
+(2, 26),
+(2, 27),
+(2, 28),
+(2, 29),
+(2, 30),
+(2, 31),
+(3, 16),
+(3, 17),
+(3, 18),
+(3, 19),
+(3, 20),
+(3, 21),
+(3, 22),
+(3, 23),
+(3, 24),
+(3, 25),
+(3, 26),
+(3, 27),
+(3, 28),
+(3, 29),
+(3, 30),
+(3, 31),
+(4, 1),
+(5, 32),
+(5, 33),
+(6, 15),
+(6, 16),
+(6, 17),
+(6, 18),
+(6, 19),
+(6, 20),
+(6, 22),
+(6, 23),
+(6, 24),
+(6, 25),
+(7, 1),
+(8, 1),
+(8, 2),
+(8, 3),
+(8, 4),
+(8, 5),
+(8, 6),
+(8, 7),
+(8, 8),
+(8, 9),
+(8, 10),
+(8, 11),
+(8, 12),
+(8, 13),
+(8, 15),
+(9, 16),
+(9, 17),
+(9, 18),
+(9, 19),
+(9, 20),
+(9, 21),
+(9, 22),
+(9, 23),
+(9, 24),
+(9, 25),
+(10, 1),
+(10, 2),
+(10, 3),
+(10, 4),
+(10, 5),
+(10, 6),
+(10, 7),
+(10, 8),
+(10, 9),
+(10, 10),
+(10, 11),
+(10, 12),
+(10, 13),
+(10, 14),
+(10, 15),
+(11, 1),
+(12, 16),
+(12, 17),
+(12, 18),
+(12, 19),
+(12, 20),
+(12, 21),
+(12, 22),
+(12, 23),
+(12, 24),
+(12, 25),
+(13, 1),
+(13, 2),
+(13, 3),
+(13, 4),
+(13, 5),
+(13, 6),
+(13, 7),
+(13, 8),
+(13, 9),
+(13, 10),
+(13, 11),
+(13, 12),
+(13, 15);
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `gender`
+--
+
+CREATE TABLE `gender` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `gender`
+--
+
+INSERT INTO `gender` (`id`, `name`) VALUES
+(1, 'Nam'),
+(2, 'Nữ'),
+(3, 'Khác');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `items`
+--
+
+CREATE TABLE `items` (
+  `id` bigint(20) NOT NULL,
+  `item_image` varchar(255) NOT NULL,
+  `item_name` varchar(100) NOT NULL,
+  `item_price` decimal(38,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `level_game`
+--
+
+CREATE TABLE `level_game` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `level_game`
+--
+
+INSERT INTO `level_game` (`id`, `name`) VALUES
+(1, 'Iron'),
+(2, 'Đồng'),
+(3, 'Bạc'),
+(4, 'Vàng'),
+(5, 'Bạch Kim'),
+(6, 'Lục Bảo'),
+(7, 'Kim Cương'),
+(8, 'Cao Thủ'),
+(9, 'Đại Cao Thủ'),
+(10, 'Thách Đấu'),
+(11, 'Tinh Anh'),
+(13, 'Chiến Tướng'),
+(14, 'Quán Quân'),
+(15, 'Chí Tôn'),
+(16, 'Huyền Thoại'),
+(17, 'Tân Binh'),
+(18, 'Chiến Binh'),
+(19, 'Tinh Nhuệ'),
+(20, 'Chuyên Nghiệp'),
+(21, 'Bậc Thầy'),
+(22, 'Người Mới'),
+(23, 'Thành Thục');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `lucky_spin`
+--
+
+CREATE TABLE `lucky_spin` (
+  `id` bigint(20) NOT NULL,
+  `lucky_time` datetime(6) DEFAULT NULL,
+  `point` decimal(38,2) DEFAULT NULL,
+  `user_lucky_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `perfect_role`
+--
+
+CREATE TABLE `perfect_role` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `perfect_role`
+--
+
+INSERT INTO `perfect_role` (`id`, `name`) VALUES
+(1, 'Khác'),
+(2, 'Đấu Sĩ'),
+(3, 'Pháp Sư'),
+(4, 'Sát Thủ'),
+(5, 'Chống Chịu'),
+(6, 'Tất Cả'),
+(7, 'Xạ Thủ'),
+(8, 'Đi Rừng'),
+(9, 'Hỗ Trợ'),
+(10, 'Đường Giữa'),
+(11, 'Đường Dưới'),
+(12, 'Đường Trên'),
+(13, 'Đường Rồng'),
+(14, 'Đường Caesar'),
+(15, 'Đỡ Đòn'),
+(16, 'Rusher'),
+(17, 'Carry'),
+(18, 'Camper'),
+(19, 'Scouter'),
+(20, 'The Explorer'),
+(21, 'The Driver'),
+(22, 'The Support'),
+(23, 'The Flagger'),
+(24, 'Thr Sniper'),
+(25, 'Leader'),
+(26, 'Cơ Khí'),
+(27, 'Ninja'),
+(28, 'Vệ binh'),
+(29, 'Quân Y'),
+(30, 'Đặc Công'),
+(31, 'Do Thám'),
+(32, 'AU2'),
+(33, 'AU Beat');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `product`
+--
+
+CREATE TABLE `product` (
+  `id` bigint(20) NOT NULL,
+  `created_date` datetime(6) DEFAULT NULL,
+  `decription` varchar(255) DEFAULT NULL,
+  `hour` int(11) NOT NULL,
+  `img_product` varchar(255) DEFAULT NULL,
+  `price` decimal(38,2) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `game_product_id` bigint(20) DEFAULT NULL,
+  `gender_product_id` bigint(20) DEFAULT NULL,
+  `level_product_id` bigint(20) DEFAULT NULL,
+  `role_product_id` bigint(20) DEFAULT NULL,
+  `user_product_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `purchase`
+--
+
+CREATE TABLE `purchase` (
+  `purchaseid` bigint(20) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `user_purchase_id` bigint(20) DEFAULT NULL,
+  `item_purchase_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `quiz_item`
+--
+
+CREATE TABLE `quiz_item` (
+  `id` bigint(20) NOT NULL,
+  `correct_answer_index` int(11) NOT NULL,
+  `question` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ranks`
+--
+
+CREATE TABLE `ranks` (
+  `rank_id` bigint(20) NOT NULL,
+  `avatar_frame_image` varchar(255) NOT NULL,
+  `background_image` varchar(255) NOT NULL,
+  `minimum_balance` decimal(15,2) DEFAULT NULL,
+  `rank_name` varchar(50) NOT NULL,
+  `maximum_balance` decimal(15,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ranks`
+--
+
+INSERT INTO `ranks` (`rank_id`, `avatar_frame_image`, `background_image`, `minimum_balance`, `rank_name`, `maximum_balance`) VALUES
+(1, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700822890/jvxdrvpnu6lnljt2eqgc.png', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700822891/e8zafsoibaspoval2e7t.jpg', '1000000.00', 'Xanh1', '10000000.00'),
+(2, 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700822926/v3knnzaqa1g2wslvq03k.png', 'http://res.cloudinary.com/dbdz9u1y6/image/upload/v1700822927/w70slgmszk4ncxkiqnbu.jpg', '2000000.00', 'Xanh2', '10000000.00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `review`
+--
+
+CREATE TABLE `review` (
+  `id` bigint(20) NOT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `rating` int(11) DEFAULT NULL,
+  `product_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `id` bigint(20) NOT NULL,
+  `admin_check_time` datetime(6) DEFAULT NULL,
+  `amount` decimal(38,2) DEFAULT NULL,
+  `checked_by_admin` bit(1) NOT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `transaction_time` datetime(6) DEFAULT NULL,
+  `user_transaction_id` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `answers`
+--
+ALTER TABLE `answers`
+  ADD KEY `FK5jqt4fiil6dui3j12mnpbcb48` (`quiz_item_id`);
+
+--
+-- Chỉ mục cho bảng `auth`
+--
+ALTER TABLE `auth`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK10g9hw7wal84ihcimadcwey6r` (`rank_id`);
+
+--
+-- Chỉ mục cho bảng `auth_avatars`
+--
+ALTER TABLE `auth_avatars`
+  ADD KEY `FKooxc256mib9hw9gl8s83anx59` (`auth_id`);
+
+--
+-- Chỉ mục cho bảng `banner`
+--
+ALTER TABLE `banner`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `become_idol`
+--
+ALTER TABLE `become_idol`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKe54ih4rgn5l7d186yakgvgex6` (`user_become_id`);
+
+--
+-- Chỉ mục cho bảng `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `donate`
+--
+ALTER TABLE `donate`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKnvysu1gyl5ao63vvqfgdmy84q` (`user_from_id`),
+  ADD KEY `FKpylwnh177v55mm2duv9a5wsxj` (`user_to_id`),
+  ADD KEY `FKf3d25ptjkarcm5ayvf0ieno9e` (`item_donate`);
+
+--
+-- Chỉ mục cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `game`
+--
+ALTER TABLE `game`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `game_gender`
+--
+ALTER TABLE `game_gender`
+  ADD KEY `FK52pdc97cec86o62fjwccgrprj` (`gender_id`),
+  ADD KEY `FKqjwyc5tlhfufeqqd6395ym3uc` (`game_id`);
+
+--
+-- Chỉ mục cho bảng `game_level`
+--
+ALTER TABLE `game_level`
+  ADD KEY `FKsi9e3del88lf7o7xabcyuoiv6` (`level_id`),
+  ADD KEY `FKjfx67jsbs5rmkfe2vrrjeju57` (`game_id`);
+
+--
+-- Chỉ mục cho bảng `game_role`
+--
+ALTER TABLE `game_role`
+  ADD KEY `FKn7taugjb4s1opt4atmo91aqad` (`role_id`),
+  ADD KEY `FK49t51iu2pvpgnd2iocmd2l23v` (`game_id`);
+
+--
+-- Chỉ mục cho bảng `gender`
+--
+ALTER TABLE `gender`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `level_game`
+--
+ALTER TABLE `level_game`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `lucky_spin`
+--
+ALTER TABLE `lucky_spin`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKogeecpwflmhsp0jb10bl7xgm0` (`user_lucky_id`);
+
+--
+-- Chỉ mục cho bảng `perfect_role`
+--
+ALTER TABLE `perfect_role`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FK99g4fhayyjiqxe9y20ckqo2gg` (`game_product_id`),
+  ADD KEY `FKrgyr81mjdw7e3l7flkapfff86` (`gender_product_id`),
+  ADD KEY `FKoqjvsrkgk2mm96bp91v21xvi8` (`level_product_id`),
+  ADD KEY `FKk0s6kkjlsvr3ebjiycd91l9s6` (`role_product_id`),
+  ADD KEY `FK7oclg5t0e0txmwtehwjsdlpee` (`user_product_id`);
+
+--
+-- Chỉ mục cho bảng `purchase`
+--
+ALTER TABLE `purchase`
+  ADD PRIMARY KEY (`purchaseid`),
+  ADD KEY `FKlmmtxh1qgwsp8bf47bpp55gar` (`user_purchase_id`),
+  ADD KEY `FK32bn7h4aew0wfhgcg9viih59` (`item_purchase_id`);
+
+--
+-- Chỉ mục cho bảng `quiz_item`
+--
+ALTER TABLE `quiz_item`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `ranks`
+--
+ALTER TABLE `ranks`
+  ADD PRIMARY KEY (`rank_id`);
+
+--
+-- Chỉ mục cho bảng `review`
+--
+ALTER TABLE `review`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKiyof1sindb9qiqr9o8npj8klt` (`product_id`);
+
+--
+-- Chỉ mục cho bảng `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `FKamo198it9ot23gsjdbni8t9hi` (`user_transaction_id`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT cho bảng `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT cho bảng `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `game`
+--
+ALTER TABLE `game`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT cho bảng `gender`
+--
+ALTER TABLE `gender`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `items`
+--
+ALTER TABLE `items`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `level_game`
+--
+ALTER TABLE `level_game`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT cho bảng `lucky_spin`
+--
+ALTER TABLE `lucky_spin`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `perfect_role`
+--
+ALTER TABLE `perfect_role`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+
+--
+-- AUTO_INCREMENT cho bảng `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `purchase`
+--
+ALTER TABLE `purchase`
+  MODIFY `purchaseid` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `quiz_item`
+--
+ALTER TABLE `quiz_item`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `ranks`
+--
+ALTER TABLE `ranks`
+  MODIFY `rank_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `review`
+--
+ALTER TABLE `review`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `answers`
+--
+ALTER TABLE `answers`
+  ADD CONSTRAINT `FK5jqt4fiil6dui3j12mnpbcb48` FOREIGN KEY (`quiz_item_id`) REFERENCES `quiz_item` (`id`);
+
+--
+-- Các ràng buộc cho bảng `auth`
+--
+ALTER TABLE `auth`
+  ADD CONSTRAINT `FK10g9hw7wal84ihcimadcwey6r` FOREIGN KEY (`rank_id`) REFERENCES `ranks` (`rank_id`);
+
+--
+-- Các ràng buộc cho bảng `auth_avatars`
+--
+ALTER TABLE `auth_avatars`
+  ADD CONSTRAINT `FKooxc256mib9hw9gl8s83anx59` FOREIGN KEY (`auth_id`) REFERENCES `auth` (`id`);
+
+--
+-- Các ràng buộc cho bảng `become_idol`
+--
+ALTER TABLE `become_idol`
+  ADD CONSTRAINT `FKe54ih4rgn5l7d186yakgvgex6` FOREIGN KEY (`user_become_id`) REFERENCES `auth` (`id`);
+
+--
+-- Các ràng buộc cho bảng `donate`
+--
+ALTER TABLE `donate`
+  ADD CONSTRAINT `FKf3d25ptjkarcm5ayvf0ieno9e` FOREIGN KEY (`item_donate`) REFERENCES `items` (`id`),
+  ADD CONSTRAINT `FKnvysu1gyl5ao63vvqfgdmy84q` FOREIGN KEY (`user_from_id`) REFERENCES `auth` (`id`),
+  ADD CONSTRAINT `FKpylwnh177v55mm2duv9a5wsxj` FOREIGN KEY (`user_to_id`) REFERENCES `auth` (`id`);
+
+--
+-- Các ràng buộc cho bảng `game_gender`
+--
+ALTER TABLE `game_gender`
+  ADD CONSTRAINT `FK52pdc97cec86o62fjwccgrprj` FOREIGN KEY (`gender_id`) REFERENCES `gender` (`id`),
+  ADD CONSTRAINT `FKqjwyc5tlhfufeqqd6395ym3uc` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`);
+
+--
+-- Các ràng buộc cho bảng `game_level`
+--
+ALTER TABLE `game_level`
+  ADD CONSTRAINT `FKjfx67jsbs5rmkfe2vrrjeju57` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
+  ADD CONSTRAINT `FKsi9e3del88lf7o7xabcyuoiv6` FOREIGN KEY (`level_id`) REFERENCES `level_game` (`id`);
+
+--
+-- Các ràng buộc cho bảng `game_role`
+--
+ALTER TABLE `game_role`
+  ADD CONSTRAINT `FK49t51iu2pvpgnd2iocmd2l23v` FOREIGN KEY (`game_id`) REFERENCES `game` (`id`),
+  ADD CONSTRAINT `FKn7taugjb4s1opt4atmo91aqad` FOREIGN KEY (`role_id`) REFERENCES `perfect_role` (`id`);
+
+--
+-- Các ràng buộc cho bảng `lucky_spin`
+--
+ALTER TABLE `lucky_spin`
+  ADD CONSTRAINT `FKogeecpwflmhsp0jb10bl7xgm0` FOREIGN KEY (`user_lucky_id`) REFERENCES `auth` (`id`);
+
+--
+-- Các ràng buộc cho bảng `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `FK7oclg5t0e0txmwtehwjsdlpee` FOREIGN KEY (`user_product_id`) REFERENCES `auth` (`id`),
+  ADD CONSTRAINT `FK99g4fhayyjiqxe9y20ckqo2gg` FOREIGN KEY (`game_product_id`) REFERENCES `game` (`id`),
+  ADD CONSTRAINT `FKk0s6kkjlsvr3ebjiycd91l9s6` FOREIGN KEY (`role_product_id`) REFERENCES `perfect_role` (`id`),
+  ADD CONSTRAINT `FKoqjvsrkgk2mm96bp91v21xvi8` FOREIGN KEY (`level_product_id`) REFERENCES `level_game` (`id`),
+  ADD CONSTRAINT `FKrgyr81mjdw7e3l7flkapfff86` FOREIGN KEY (`gender_product_id`) REFERENCES `gender` (`id`);
+
+--
+-- Các ràng buộc cho bảng `purchase`
+--
+ALTER TABLE `purchase`
+  ADD CONSTRAINT `FK32bn7h4aew0wfhgcg9viih59` FOREIGN KEY (`item_purchase_id`) REFERENCES `items` (`id`),
+  ADD CONSTRAINT `FKlmmtxh1qgwsp8bf47bpp55gar` FOREIGN KEY (`user_purchase_id`) REFERENCES `auth` (`id`);
+
+--
+-- Các ràng buộc cho bảng `review`
+--
+ALTER TABLE `review`
+  ADD CONSTRAINT `FKiyof1sindb9qiqr9o8npj8klt` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
+
+--
+-- Các ràng buộc cho bảng `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `FKamo198it9ot23gsjdbni8t9hi` FOREIGN KEY (`user_transaction_id`) REFERENCES `auth` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

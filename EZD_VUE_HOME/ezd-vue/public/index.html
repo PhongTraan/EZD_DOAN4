@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <!-- Mirrored from html.crumina.net/cryptoki/nft/21-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Oct 2023 14:37:03 GMT -->
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ThemeMarch">
+    <!-- Site Title -->
+    <title>EZD Home</title>
+    <link rel="stylesheet" href="<%= BASE_URL %>assets/css/plugins/fontawesome.min.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>assets/css/plugins/slick.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>assets/css/style.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>assets/css/popup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+  </head>
+ 
+  <body class="cs-dark">
+    <div class="main">
+      <div class="login-popup">
+        <div class="box">
+           <div class="img-area">
+             <div class="img">
+             </div>
+             
+           </div>
+           <div class="form">
+             <div class="close">&times;</div>
+             <h3>Điền Email Để Nhận Khuyến Mãi</h3>
+             <form>
+               <div class="form-group">
+                 <input type="text" placeholder="Email" class="form-control">
+               </div>
+               <button type="button" class="btn">Gửi</button>
+             </form>
+           </div>
+        </div>
+     </div>
+      
+      <div id="app"></div>
+    </div>
+    <!-- built files will be auto injected -->
+
+    <!-- Add your site or application content here -->
+     <!-- Script -->
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="EZDGame"
+  agent-id="dd48e940-92f3-461a-8499-d9c69d6bea66"
+  language-code="en"
+></df-messenger>
+
+  <script src="<%= BASE_URL %>assets/js/plugins/jquery-3.6.0.min.js"></script>
+  <script src="<%= BASE_URL %>assets/js/plugins/isotope.pkg.min.js"></script>
+  <script src="<%= BASE_URL %>assets/js/plugins/jquery.slick.min.js"></script>
+  <script src="<%= BASE_URL %>assets/js/main.js"></script>
+  <script>
+    
+
+  const loginPopup = document.querySelector(".login-popup");
+  const close = document.querySelector(".close");
+
+
+  window.addEventListener("load",function(){
+ 
+   showPopup();
+   // setTimeout(function(){
+   //   loginPopup.classList.add("show");
+   // },5000)
+
+  })
+
+  function showPopup(){
+        const timeLimit = 2 // seconds;
+        let i=0;
+        const timer = setInterval(function(){
+         i++;
+         if(i == timeLimit){
+          clearInterval(timer);
+          loginPopup.classList.add("show");
+         } 
+        },1000);
+  }
+
+
+  close.addEventListener("click",function(){
+    loginPopup.classList.remove("show");
+  })
+
+
+  </script>
+  </body>
+</html>
